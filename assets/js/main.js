@@ -88,7 +88,7 @@ function setup_highchartsmap(){
 
 	//DATA prep
 	var request = new XMLHttpRequest();
-	request.open("GET", mydir+"../data/data_latest.json?nocache="+Date.now(), false);
+	request.open("GET", "https://semohr.github.io/risikogebiete_deutschland/assets/data/data_latest.json?nocache="+Date.now(), false);
 	request.send(null)
 	data_json = JSON.parse(request.responseText);
 

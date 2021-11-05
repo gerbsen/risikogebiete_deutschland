@@ -101,24 +101,26 @@ function setup_highchartsmap(){
 			var id_m = String(id_d)
 		}
 
+		if (["14612", "14511", "14713", "14625", "14521", "14626", "14729", "14627", "14522", "14730", "14628", "14523", "14524"].includes(id_m)) {
 
-		var dat = []
-		dat.push(id_m)
+			var dat = []
+			dat.push(id_m)
 
-		var vars = [
-		"weekly_cases",	           "inzidenz",
-		"weekly_cases_A00-A04",	   "inzidenz_A00-A04",
-		"weekly_cases_A05-A14",	   "inzidenz_A05-A14",
-		"weekly_cases_A15-A34",	   "inzidenz_A15-A34",
-		"weekly_cases_A35-A59",	   "inzidenz_A35-A59",
-		"weekly_cases_A60-A79",	   "inzidenz_A60-A79",
-		"weekly_cases_A80+",	     "inzidenz_A80+",
-		"weekly_cases_unbekannt",	 "inzidenz_unbekannt"]
+			var vars = [
+			"weekly_cases",	           "inzidenz",
+			"weekly_cases_A00-A04",	   "inzidenz_A00-A04",
+			"weekly_cases_A05-A14",	   "inzidenz_A05-A14",
+			"weekly_cases_A15-A34",	   "inzidenz_A15-A34",
+			"weekly_cases_A35-A59",	   "inzidenz_A35-A59",
+			"weekly_cases_A60-A79",	   "inzidenz_A60-A79",
+			"weekly_cases_A80+",	     "inzidenz_A80+",
+			"weekly_cases_unbekannt",	 "inzidenz_unbekannt"]
 
-		for (index in vars){
-			dat.push(data_json[id_d][vars[index]])
+			for (index in vars){
+				dat.push(data_json[id_d][vars[index]])
+			}
+			data.push(dat)
 		}
-		data.push(dat)
 	}
 
 
@@ -289,7 +291,8 @@ function setup_highchartsmap(){
 		verticalAlign: 'bottom',
 		floating: true,
     labelFormatter: function () {
-      return (this.from || '<') + ' - ' + (this.to || '>');
+			if ( this.from == 1000 ) return "über 1000"
+      return (this.from || '0') + ' - ' + (this.to || '>');
     },
 		layout: 'vertical',
 		valueDecimals: 0,

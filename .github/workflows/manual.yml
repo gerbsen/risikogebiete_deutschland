@@ -33,7 +33,7 @@ jobs:
         uses: EndBug/add-and-commit@v5
         with:
            author_name: UpdateBot
-           author_email: sebastian@mohrenclan.de
+           author_email: team@danielgerber.eu
            message: "Updated rki dataset"
            add: 'assets/data/*'
         env:
